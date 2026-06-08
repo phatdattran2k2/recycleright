@@ -423,6 +423,7 @@ def test_hud_run_parses_gpu_and_power(monkeypatch):
     def fake_popen(*args, **kwargs):
         return FakeProc()
 
+    monkeypatch.setattr(hud_mod.shutil, "which", lambda cmd: "/usr/bin/tegrastats" if cmd == "tegrastats" else None)
     monkeypatch.setattr(hud_mod.subprocess, "Popen", fake_popen)
     hud.run()
     assert hud.gpu_pct == 65

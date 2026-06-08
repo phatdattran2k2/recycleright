@@ -37,22 +37,28 @@ class TestAudioSrc(unittest.TestCase):
     def test_unknown_label_none(self):
         self.assertIsNone(CLASS_AUDIO.get("Unknown"))
 
-    @patch("subprocess.Popen")
-    def test_play_known_calls_ffplay(self, mock_popen):
+    @patch("src.audio.shutil.which")
+    @patch("src.audio.subprocess.Popen")
+    def test_play_known_calls_ffplay(self, mock_popen, mock_which):
+        mock_which.return_value = "/usr/bin/ffplay"
         AudioPlayer.play("PET bottle")
         mock_popen.assert_called_once()
         cmd = mock_popen.call_args[0][0]
-        self.assertEqual(cmd[0], "ffplay")
+        self.assertEqual(cmd[0], "/usr/bin/ffplay")
         self.assertIn("-nodisp", cmd)
         self.assertIn("-autoexit", cmd)
 
-    @patch("subprocess.Popen")
-    def test_play_unknown_no_call(self, mock_popen):
+    @patch("src.audio.shutil.which")
+    @patch("src.audio.subprocess.Popen")
+    def test_play_unknown_no_call(self, mock_popen, mock_which):
+        mock_which.return_value = "/usr/bin/ffplay"
         AudioPlayer.play("Unknown")
         mock_popen.assert_not_called()
 
-    @patch("subprocess.Popen")
-    def test_play_all_four_classes(self, mock_popen):
+    @patch("src.audio.shutil.which")
+    @patch("src.audio.subprocess.Popen")
+    def test_play_all_four_classes(self, mock_popen, mock_which):
+        mock_which.return_value = "/usr/bin/ffplay"
         for label in CLASS_AUDIO:
             mock_popen.reset_mock()
             AudioPlayer.play(label)
