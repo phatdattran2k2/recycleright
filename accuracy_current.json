@@ -1,0 +1,22 @@
+{
+  "mAP50": 0.9602255838503757,
+  "mAP50_95": 0.8275435977306185,
+  "precision": 0.9695208333775827,
+  "recall": 0.9637937528444891,
+  "f1_score": 0.9666483104166775,
+  "per_class_AP50": {
+    "PET bottle": 0.9619175964321208,
+    "Glass bottle": 0.9495322822892449,
+    "Aluminum can": 0.9729769326717451,
+    "Tetra Pak": 0.9564755240083921
+  },
+  "eval_model": "best.pt (FP32 PyTorch)",
+  "deploy_model": "best_fp16.engine (TRT FP16 \u2014 exported from best.pt)",
+  "note": "Accuracy evaluated on best.pt FP32 (server). Deployed as best_fp16.engine TRT FP16 on Jetson Orin Nano. FP16 quantization expected <0.5% mAP drop.",
+  "conf_threshold": 0.5,
+  "iou_threshold": 0.7,
+  "test_images": 1258,
+  "test_instances": 1496,
+  "eval_date": "2026-05-24",
+  "eval_hardware": "Training server (not Jetson)"
+}

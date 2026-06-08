@@ -1,0 +1,81 @@
+# Copyright (c) 2026 陳發達_楊瑋竣
+# Tatung University — I4210 AI Edge Computing Practicum
+
+[project]
+name = "recycleright"
+version = "0.1.0"
+description = "AI-Powered Waste Classification & Smart Sorting System"
+requires-python = "==3.10.*"
+dependencies = [
+    "numpy<2",
+    "ultralytics>=8.3",
+    "paho-mqtt>=2.0",
+    "Jetson.GPIO>=2.1",
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "aiofiles>=24.1",
+    "python-multipart>=0.0.20",
+    "Adafruit-PCA9685>=1.0.1",
+    "smbus2>=0.4.3",
+]
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=8",
+    "pytest-cov>=5",
+    "pytest-mock>=3.11",
+]
+quality = [
+    "ruff>=0.6",
+    "bandit>=1.7",
+    "pip-audit>=2.7",
+]
+
+[tool.pdm.resolution]
+excludes = [
+    "opencv-python",
+    "opencv-python-headless",
+    "torch",
+    "torchvision",
+    "tensorrt",
+]
+
+[tool.pdm.scripts]
+serve      = "python src/dashboard.py"
+inference  = "python src/main.py"
+test       = "pytest tests/ -v --ignore=tests/integration"
+test-cov   = "pytest tests/ -v --cov=src --cov-report=term-missing --cov-fail-under=90 --ignore=tests/integration"
+lint       = "ruff check src/ tests/"
+fmt        = "ruff format src/ tests/"
+
+[tool.ruff]
+line-length    = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E","F","W","I","B","UP","SIM","N"]
+ignore = ["E501","N802"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D100","D101","D102","D103"]
+
+[tool.coverage.run]
+source = ["src"]
+omit   = ["src/__init__.py","src/dashboard.py"]
+branch = true
+
+[tool.coverage.report]
+fail_under   = 90
+show_missing = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts    = "-ra"
+
+[tool.bandit]
+skips        = ["B101","B108"]
+exclude_dirs = ["tests",".venv"]

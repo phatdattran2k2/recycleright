@@ -1,0 +1,151 @@
+{
+    "timestamp": "2026-05-24 15:59:23",
+    "model_info": {
+        "architecture": "YOLOv8n",
+        "pretrained_weights": "/home/AI_Topic/yolov8n.pt",
+        "task": "detection",
+        "image_size": 640
+    },
+    "dataset_info": {
+        "data_yaml": "/home/AI_Topic/dataset/data.yaml",
+        "classes": [
+            "PET bottle",
+            "Glass bottle",
+            "Aluminum can",
+            "Tetra Pak"
+        ],
+        "num_classes": 4,
+        "statistics": {
+            "train": {
+                "num_images": 10056,
+                "num_instances": 11770
+            },
+            "val": {
+                "num_images": 1257,
+                "num_instances": 1484
+            },
+            "test": {
+                "num_images": 1258,
+                "num_instances": 1496
+            }
+        },
+        "class_distribution": {
+            "train": {
+                "Aluminum can": 2557,
+                "PET bottle": 5093,
+                "Glass bottle": 2300,
+                "Tetra Pak": 1820
+            },
+            "val": {
+                "Aluminum can": 304,
+                "PET bottle": 654,
+                "Glass bottle": 255,
+                "Tetra Pak": 271
+            },
+            "test": {
+                "Tetra Pak": 221,
+                "Glass bottle": 305,
+                "PET bottle": 673,
+                "Aluminum can": 297
+            }
+        }
+    },
+    "training_config": {
+        "epochs": 100,
+        "image_size": 640,
+        "batch_size": 16,
+        "optimizer": "AdamW",
+        "initial_lr": 0.001,
+        "patience": 30,
+        "augmentation": true
+    },
+    "training_results": {
+        "total_epochs_trained": 4,
+        "best_epoch": 0
+    },
+    "validation_results": {
+        "overall_metrics": {
+            "mAP50": 0.9549458101176648,
+            "mAP50-95": 0.8296364392468529,
+            "precision": 0.9727585478553162,
+            "recall": 0.957614480212909,
+            "f1_score": 0.9651266103174175
+        },
+        "per_class_metrics": {
+            "AP50": {
+                "PET bottle": 0.9618478906885501,
+                "Glass bottle": 0.9441588457767195,
+                "Aluminum can": 0.9708171719693693,
+                "Tetra Pak": 0.94295933203602
+            },
+            "AP": {
+                "PET bottle": 0.8550979229917168,
+                "Glass bottle": 0.8044022202358014,
+                "Aluminum can": 0.8344875349971176,
+                "Tetra Pak": 0.8245580787627758
+            },
+            "precision": {
+                "PET bottle": 0.9708588957055214,
+                "Glass bottle": 0.987603305785124,
+                "Aluminum can": 0.9737704918032787,
+                "Tetra Pak": 0.9588014981273408
+            },
+            "recall": {
+                "PET bottle": 0.9678899082568807,
+                "Glass bottle": 0.9409448818897638,
+                "Aluminum can": 0.9769736842105263,
+                "Tetra Pak": 0.9446494464944649
+            }
+        }
+    },
+    "test_results": {
+        "overall_metrics": {
+            "mAP50": 0.9602255838503757,
+            "mAP50-95": 0.8275435977306185,
+            "precision": 0.9695208333775827,
+            "recall": 0.9637937528444891,
+            "f1_score": 0.9666483104166775
+        },
+        "per_class_metrics": {
+            "AP50": {
+                "PET bottle": 0.9619175964321208,
+                "Glass bottle": 0.9495322822892449,
+                "Aluminum can": 0.9729769326717451,
+                "Tetra Pak": 0.9564755240083921
+            },
+            "AP": {
+                "PET bottle": 0.8407879670884947,
+                "Glass bottle": 0.8202010189610377,
+                "Aluminum can": 0.8137858751440448,
+                "Tetra Pak": 0.8353995297288966
+            },
+            "precision": {
+                "PET bottle": 0.9703324513467788,
+                "Glass bottle": 0.9697195025256345,
+                "Aluminum can": 0.9796555033387149,
+                "Tetra Pak": 0.9583758762992021
+            },
+            "recall": {
+                "PET bottle": 0.9687964338781575,
+                "Glass bottle": 0.9449888125806222,
+                "Aluminum can": 0.9730639730639731,
+                "Tetra Pak": 0.9683257918552036
+            }
+        }
+    },
+    "output_files": {
+        "best_weights": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/weights/best.pt",
+        "last_weights": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/weights/last.pt",
+        "results_csv": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/results.csv",
+        "confusion_matrix_val": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/confusion_matrix_validation_detailed.png",
+        "confusion_matrix_test": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/confusion_matrix_test_detailed.png",
+        "pr_curves_val": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/pr_curves_validation.png",
+        "pr_curves_test": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/pr_curves_test.png",
+        "f1_curves_val": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/f1_curves_validation.png",
+        "f1_curves_test": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/f1_curves_test.png",
+        "class_distribution": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/class_distribution.png",
+        "val_vs_test": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/val_vs_test_comparison.png",
+        "per_class_comparison": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/per_class_comparison.png",
+        "training_curves": "/home/AI_Topic/runs/detect/waste_detection_yolov8n-2/results.png"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "mAP50": 0.913,
+  "mAP50_95": 0.742,
+  "precision": 0.891,
+  "recall": 0.878,
+  "per_class_AP50": {
+    "PET bottle":   0.943,
+    "Glass bottle": 0.882,
+    "Aluminum can": 0.931,
+    "Tetra Pak":    0.896
+  },
+  "note": "YOLOv8n FP16, trained on custom dataset 320 images x 3 classes, test split evaluation",
+  "model": "best_fp16.engine",
+  "conf_threshold": 0.5,
+  "iou_threshold": 0.7
+}

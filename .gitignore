@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# PDM
+.pdm-python
+.pdm-build/
+
+# Model files (large)
+*.engine
+*.onnx
+models/*.pt
+
+# Data
+data/train/
+data/valid/
+data/raw/
+
+# Generated
+audio_files/*.wav
+logs/
+*.log
+
+# IDE
+.vscode/
+.DS_Store
+
+# GitHub Actions runners (large, machine-specific)
+actions-runner*/
+
+# Secrets
+.env

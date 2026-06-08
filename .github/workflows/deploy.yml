@@ -1,0 +1,26 @@
+# Copyright (c) 2026 陳發達_楊瑋竣
+# Tatung University — I4210 AI實務專題
+
+name: Deploy
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  deploy:
+    name: Deploy to Jetson
+    runs-on: [self-hosted, linux, arm64, jetson]
+    environment:
+      name: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Login to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Pull tagged image
+        run: docker pull ghcr.io/${{ github.repository_owner }}/recycleright:${{ github.ref_name }}
+      - name: Deploy
+        run: bash deploy/deploy.sh ${{ github.ref_name }}
+      - name: Health check
+        run: bash deploy/healthcheck.sh

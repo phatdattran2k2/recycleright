@@ -1,0 +1,6 @@
+step,change,model,power_mode,fps,p50_ms,p95_ms,p99_ms,mean_ms,cpu_avg_pct,gpu_avg_pct,vdd_in_avg_mw,vdd_in_peak_mw,source
+0,Baseline — best.pt FP32 offline benchmark,best.pt (FP32),15W,39.5,24.8,28.0,30.7,25.3,39.2,73.0,8697,8998,benchmark_offline_result.csv
+1,TRT FP16 export — offline benchmark 15W,best_fp16.engine (FP16),15W,43.1,22.9,30.2,35.2,23.2,39.1,66.5,7507,8464,benchmark_offline_result.csv
+2,TRT FP16 — offline benchmark 25W,best_fp16.engine (FP16),25W,44.8,21.2,31.8,34.6,22.3,36.6,61.9,7459,7888,benchmark_offline_result.csv
+3,TRT FP16 — offline benchmark MAXN_SUPER,best_fp16.engine (FP16),MAXN_SUPER,44.4,21.8,30.9,35.1,22.5,37.2,65.6,7833,9066,benchmark_offline_result.csv
+4,Full live pipeline — MOG2 gate + camera + 4 threads,best_fp16.engine (FP16),MAXN_SUPER (live),N/A,N/A,N/A,N/A,N/A,48.5,54.8,10765,11573,"utilization.csv (live camera, MOG2 skips YOLO on idle frames)"
