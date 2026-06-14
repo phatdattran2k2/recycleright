@@ -9,9 +9,9 @@ import time
 import cv2
 from ultralytics import YOLO
 
-from src.audio import AudioPlayer
-from src.hud import HUD
-from src.serial_controller import SerialController
+from audio import AudioPlayer
+from hud import HUD
+from serial_controller import SerialController
 
 MODEL_PATH     = "/home/jetson/recycleright/models/best_fp16.engine"
 MIN_AREA       = 500

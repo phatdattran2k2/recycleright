@@ -46,7 +46,7 @@ excludes = [
 
 [tool.pdm.scripts]
 serve      = "python src/dashboard.py"
-inference  = "python src/main.py"
+inference	= "bash -c 'PYTHONPATH=src python3 src/main.py'"
 test       = "pytest tests/ -v --ignore=tests/integration"
 test-cov   = "pytest tests/ -v --cov=src --cov-report=term-missing --cov-fail-under=90 --ignore=tests/integration"
 lint       = "ruff check src/ tests/"
