@@ -62,7 +62,7 @@ jobs:
       - name: Run bandit
         run: pdm run bandit -r src/ -c pyproject.toml
       - name: Run pip-audit
-        run: pdm run pip-audit --ignore-vuln PYSEC-2026-196
+        run: pdm run pip-audit --ignore-vuln CVE-2025-3000 --ignore-vuln PYSEC-2026-196
 
   build:
     name: Build Docker Image

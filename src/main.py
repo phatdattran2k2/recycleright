@@ -12,10 +12,10 @@ import time
 
 import cv2
 
-from camera import CameraCapture
-from detector import Detector
-from hud import HUD
-from serial_controller import SerialController
+from src.camera import CameraCapture
+from src.detector import Detector
+from src.hud import HUD
+from src.serial_controller import SerialController
 
 
 def main() -> None:
