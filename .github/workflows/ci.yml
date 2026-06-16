@@ -97,14 +97,19 @@ jobs:
     name: Integration Test (Jetson)
     runs-on: [self-hosted, linux, arm64, jetson]
     needs: build
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Pull image from GHCR
-        run: docker pull ghcr.io/${{ github.repository_owner }}/recycleright:sha-${{ github.sha }}
+        run: |
+          docker pull ghcr.io/${{ github.repository_owner }}/recycleright:sha-${{ github.sha }}
+
       - name: Run integration tests
         run: |
           docker run --rm --runtime nvidia \
             -e MODEL_PATH=/models/best_fp16.engine \
             -v /home/jetson/recycleright/models:/models:ro \
+            --entrypoint="" \
             ghcr.io/${{ github.repository_owner }}/recycleright:sha-${{ github.sha }} \
-            pytest tests/integration/ -v --timeout=120
+            bash -c "pip install pytest pytest-timeout -q && python3 -m pytest tests/integration/ -v --timeout=120"
