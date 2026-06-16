@@ -112,4 +112,8 @@ jobs:
             -v /home/jetson/recycleright/models:/models:ro \
             --entrypoint="" \
             ghcr.io/${{ github.repository_owner }}/recycleright:sha-${{ github.sha }} \
-            bash -c "pip install pytest pytest-timeout -q && python3 -m pytest tests/integration/ -v --timeout=120"
+            bash -c "
+              export PIP_INDEX_URL=https://pypi.org/simple &&
+              python3 -m pip install pytest pytest-timeout -q &&
+              python3 -m pytest tests/integration/ -v --timeout=120
+            "
