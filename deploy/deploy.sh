@@ -15,7 +15,7 @@ fi
 echo "$TAG" > "$STATE_FILE"
 
 echo "[deploy] Pulling image tag=$TAG"
-docker pull "ghcr.io/dinos611451001/recycleright:${TAG}"
+docker pull "ghcr.io/phatdattran2k2/recycleright:latest"
 
 echo "[deploy] Stopping current container"
 $COMPOSE down || true

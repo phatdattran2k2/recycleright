@@ -19,7 +19,7 @@ jobs:
       - name: Login to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Pull tagged image
-        run: docker pull ghcr.io/${{ github.repository_owner }}/recycleright:${{ github.ref_name }}
+        run: docker pull ghcr.io/${{ github.repository_owner }}/recycleright:latest
       - name: Deploy
         run: bash deploy/deploy.sh ${{ github.ref_name }}
       - name: Health check

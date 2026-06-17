@@ -5,7 +5,7 @@ version: "3.8"
 
 services:
   recycleright:
-    image: ghcr.io/dinos611451001/recycleright:latest
+    image: ghcr.io/phatdattran2k2/recycleright:latest
     runtime: nvidia
     restart: unless-stopped
     devices:
