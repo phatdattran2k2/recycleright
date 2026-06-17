@@ -562,8 +562,3 @@ The team collaboration worked well because we established a clear interface boun
 - GStreamer pipeline string adapted from the Jetson Nano Developer Kit Getting Started Guide (NVIDIA, 2024) — modified for `nvarguscamerasrc` on JetPack 6.x
 - `conftest.py` mock structure adapted from course lab examples; all test code is original
 
----
-
-*Report generated: 2026-06-09*
-*Word count: approximately 5,200 words*
-*All performance numbers sourced from `optimization_journey.csv`, `benchmark_offline_result.csv`, and `utilization.csv` in the project repository.*
