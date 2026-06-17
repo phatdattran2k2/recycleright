@@ -13,11 +13,8 @@ from src.audio import AudioPlayer
 from src.hud import HUD
 from src.serial_controller import SerialController
 import os
-from ultralytics import YOLO
 
 MODEL_PATH = os.getenv("MODEL_PATH", "/models/best_fp16.engine")
-
-self._model = YOLO(MODEL_PATH)
 MIN_AREA       = 500
 FRAME_STALE    = 1.0
 VOTE_FRAMES    = 10
@@ -48,7 +45,6 @@ class Detector:
 
         self.latest_frame: cv2.Mat | None = None
         self.frame_lock   = threading.Lock()
-
         self._model = YOLO(MODEL_PATH)
 
     def run(self) -> None:
