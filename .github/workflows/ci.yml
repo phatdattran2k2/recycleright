@@ -103,7 +103,11 @@ jobs:
 
       - name: Pull image from GHCR
         run: |
-          docker pull ghcr.io/${{ github.repository_owner }}/recycleright:sha-${{ github.sha }}
+          for i in {1..10}; do
+            docker pull ghcr.io/${{ github.repository_owner }}/recycleright:sha-${{ github.sha }} && break
+            echo "Waiting for GHCR propagation..."
+            sleep 30
+          done
 
       - name: Run integration tests
         run: |
