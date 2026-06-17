@@ -16,7 +16,7 @@ services:
       - /home/jetson/recycleright/models:/models:ro
 
     environment:
-      - MODEL_PATH=/home/jetson/recycleright/models/best_fp16.engine
+      - MODEL_PATH=/models/best_fp16.engine
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
 

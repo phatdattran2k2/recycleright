@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright (c) 2026 陳發達_楊瑋竣
 # Tatung University — I4210 AI實務專題
-
+import os
 import queue
 import threading
 import time
@@ -13,7 +13,7 @@ from src.audio import AudioPlayer
 from src.hud import HUD
 from src.serial_controller import SerialController
 
-MODEL_PATH     = "/home/jetson/recycleright/models/best_fp16.engine"
+MODEL_PATH = os.getenv("MODEL_PATH", "/models/best_fp16.engine")
 MIN_AREA       = 500
 FRAME_STALE    = 1.0
 VOTE_FRAMES    = 10
