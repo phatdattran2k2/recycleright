@@ -1,24 +1,16 @@
-# Copyright (c) 2026 陳發達_楊瑋竣
-# Tatung University — I4210 AI實務專題
-
-version: "3.8"
-
 services:
   recycleright:
     image: ghcr.io/phatdattran2k2/recycleright:latest
-    runtime: nvidia
+    container_name: deploy-recycleright-1
     restart: unless-stopped
-
+    runtime: nvidia
+    privileged: true
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
-
+      - /dev/video0:/dev/video0
     volumes:
       - /home/jetson/recycleright/models:/models:ro
-
+      - /tmp/argus_socket:/tmp/argus_socket
     environment:
       - MODEL_PATH=/models/best_fp16.engine
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=all
-
-    privileged: true
+      - SSH_CLIENT=docker
     network_mode: host
