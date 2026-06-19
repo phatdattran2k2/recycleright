@@ -565,9 +565,11 @@ The team collaboration worked well because we established a clear interface boun
 ### Quick Verification
 
 export MODEL_PATH=models/best_fp16.engine
+
 python3 -m src.main
 
 docker pull ghcr.io/phatdattran2k2/recycleright:latest
+
 docker run --rm --runtime nvidia \
   -e MODEL_PATH=/models/best_fp16.engine \
   -v /home/jetson/recycleright/models:/models:ro \
