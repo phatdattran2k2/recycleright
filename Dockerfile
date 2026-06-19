@@ -45,6 +45,8 @@ RUN python3 -c "import numpy as np, cv2, ultralytics; print(np.__version__, cv2.
 COPY pyproject.toml pdm.lock* ./
 COPY src/ ./src/
 COPY models/ ./models/
+COPY tests/ ./tests/
+COPY tests/ ./tests/
 
 ENV MODEL_PATH=/app/models/best_fp16.engine
 ENV PYTHONPATH=/app
