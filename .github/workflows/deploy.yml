@@ -24,15 +24,4 @@ jobs:
         run: bash deploy/deploy.sh ${{ github.ref_name }}
       - name: Health check
         run: bash deploy/healthcheck.sh
-      - name: Mark deployment success
-        if: success()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.repos.createDeploymentStatus({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              deployment_id: context.payload.deployment?.id,
-              state: 'success',
-              environment: 'production'
-            });
+
