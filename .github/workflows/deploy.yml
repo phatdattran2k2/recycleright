@@ -24,4 +24,3 @@ jobs:
         run: bash deploy/deploy.sh ${{ github.ref_name }}
       - name: Health check
         run: bash deploy/healthcheck.sh
-
